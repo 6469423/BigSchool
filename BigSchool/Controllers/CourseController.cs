@@ -15,7 +15,7 @@ namespace BigSchool.Controllers
         public ActionResult Create()
         {
             //get list category
-            BigSchoolDB context = new BigSchoolDB();
+            BigSchoolDBContext context = new BigSchoolDBContext();
             Course objCourse = new Course();
             objCourse.ListCategory = context.Categories.ToList();
             return View(objCourse);
@@ -26,7 +26,7 @@ namespace BigSchool.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Course objcourse)
         {
-            BigSchoolDB con = new BigSchoolDB();
+            BigSchoolDBContext con = new BigSchoolDBContext();
 
             ModelState.Remove("LecturerId");
             if (!ModelState.IsValid)
@@ -45,7 +45,7 @@ namespace BigSchool.Controllers
         }
         public ActionResult Attending()
         {
-            BigSchoolDB con = new BigSchoolDB();
+            BigSchoolDBContext con = new BigSchoolDBContext();
             ApplicationUser currentUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             var ListAttendances = con.Attendances.Where(p => p.Attendee == currentUser.Id).ToList();
             var courses = new List<Course>();
@@ -59,7 +59,7 @@ namespace BigSchool.Controllers
         }
         public ActionResult Mine()
         {
-            BigSchoolDB con = new BigSchoolDB();
+            BigSchoolDBContext con = new BigSchoolDBContext();
             ApplicationUser currentUser = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
             var courses = con.Courses.Where(c =>c.LecturerId == currentUser.Id && c.Datetime > DateTime.Now).ToList();
            

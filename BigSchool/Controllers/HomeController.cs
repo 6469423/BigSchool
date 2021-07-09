@@ -14,7 +14,7 @@ namespace BigSchool.Controllers
         public ActionResult Index()
         {
 
-            BigSchoolDB con = new BigSchoolDB();
+            BigSchoolDBContext con = new BigSchoolDBContext();
             var upcommingcourse = con.Courses.Where(p => p.Datetime > DateTime.Now).OrderBy(p => p.Datetime).ToList();
             foreach (Course i in upcommingcourse)
             {

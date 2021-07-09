@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace BigSchool.Models
 {
-    public partial class BigSchoolDB : DbContext
+    public partial class BigSchoolDBContext : DbContext
     {
-        public BigSchoolDB()
-            : base("name=BigSchoolDB")
+        public BigSchoolDBContext()
+            : base("name=BigSchoolDBContext")
         {
         }
 
