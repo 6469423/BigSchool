@@ -9,10 +9,8 @@ namespace BigSchool.Controllers
 {
     public class CoursesController : Controller
     {
-        // GET: Courses
         public ActionResult Create()
         {
-            //get list category
             BigSchoolDBContext con = new BigSchoolDBContext();
             Course objCourse = new Course();
             objCourse.ListCategory = con.Categories.ToList();
