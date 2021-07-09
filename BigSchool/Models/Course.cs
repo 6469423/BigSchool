@@ -20,7 +20,7 @@ namespace BigSchool.Models
 
         [Required]
         [StringLength(128)]
-        public string LectureId { get; set; }
+        public string LecturerId { get; set; }
 
         [Required]
         [StringLength(255)]
