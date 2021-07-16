@@ -5,16 +5,18 @@ using System.Linq;
 
 namespace BigSchool.Models
 {
-    public partial class BigSchoolDBContext : DbContext
+    public partial class BigSchoolDB : DbContext
     {
-        public BigSchoolDBContext()
-            : base("name=BigSchoolDBContext")
+        public BigSchoolDB()
+            : base("name=BigSchoolDB")
         {
         }
 
         public virtual DbSet<Attendance> Attendances { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Following> Followings { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
